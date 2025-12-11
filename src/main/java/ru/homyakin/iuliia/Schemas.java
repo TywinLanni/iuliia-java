@@ -147,7 +147,7 @@ public enum Schemas {
      * @throws IOException if there is an error reading the schema file
      */
     public Schema getSchema() throws IOException {
-        try (var stream = getJsonStream(name)) {
+        try (InputStream stream = getJsonStream(name)) {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(stream, Schema.class);
         }
